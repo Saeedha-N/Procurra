@@ -91,6 +91,9 @@
 <div id="loader">
   <img src="loader.gif" width="150px" alt="Loading...">
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
   <script>
     const chatHistory = document.getElementById('chat-history');
     const userInput = document.getElementById('user-input');
@@ -115,7 +118,7 @@
         console.log(botMessage)
         // Add chat message to the chat history
         chatHistory.innerHTML += `<div class="user-message">${userMessage}</div>`;
-        chatHistory.innerHTML += `<div class="bot-message">${botMessage}</div>`;
+        chatHistory.innerHTML += `<div class="bot-message">${marked.parse(botMessage)}</div>`;
 
         // Scroll to the bottom of the chat history
         chatHistory.scrollTop = chatHistory.scrollHeight;
